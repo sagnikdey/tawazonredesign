@@ -19,15 +19,15 @@ const TeamMember = ({ name, title, imageSrc, bio, details, variant = 'grid' }: T
       <div className="overflow-hidden">
         {/* Image floats left so text wraps around it */}
         <div className="float-left mr-6 mb-4 w-full max-w-[280px] sm:max-w-[320px]">
-          <div className="relative overflow-hidden backdrop-blur-2xl bg-white/10 dark:bg-zinc-900/10 border dark:border-zinc-800/50 rounded-sm p-4">
-            <div className="relative aspect-4/5 w-full ">
+          <div className="relative glass-card-textured p-4">
+            <div className="relative aspect-4/5 w-full rounded-sm overflow-hidden">
               <Image
                 src={imageSrc}
                 alt={name}
                 fill
                 unoptimized
                 sizes="(min-width: 640px) 320px, 280px"
-                className="object-cover rounded-sm"
+                className="object-cover"
                 priority
               />
             </div>

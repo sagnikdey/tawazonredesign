@@ -1,5 +1,7 @@
 import React from 'react';
 import TeamMember, { type TeamMemberProps } from './teammember';
+import { Badge } from './ui/badge';
+import { CircleDot } from 'lucide-react';
 
 const team = () => {
   // Replace these with real team data + local images when available.
@@ -60,14 +62,14 @@ const team = () => {
 
       <div className="mx-auto max-w-[1400px] px-6 sm:px-12 xl:px-24">
         <div className="max-w-3xl">
-        <div className="mb-8 flex w-fit items-center gap-2 rounded-full border border-zinc-200 bg-white/50 px-3 py-1 text-xs text-zinc-600 backdrop-blur-sm dark:border-white/10 dark:bg-white/5 dark:text-zinc-300">
-                <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-                <span>Team Tawazon</span>
-              </div>
-          <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
+            <Badge variant="outline" className='mb-8'>
+                        <CircleDot data-icon="CircleDot" className='text-green-500'/>
+                        Team Tawazon
+                    </Badge>
+          <h2>
             Meet the team
           </h2>
-          <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
+          <p className="mt-4 text-base">
           The Senior Management Team
           </p>
         </div>

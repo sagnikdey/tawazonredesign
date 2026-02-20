@@ -191,10 +191,52 @@
   h1, h2 {
     font-family: var(--font-libre-baskerville);
   }
+
   h2 {
     @apply md:text-4xl text-2xl font-semibold;
   }
+  h1 {
+    @apply md:text-5xl text-4xl font-semibold tracking-tight leading-tight;
+  }
+  h3 {
+    @apply md:text-xl text-lg font-medium;
+  }
+  h4 {
+    @apply md:text-lg text-base font-medium;
+  }
+  
   section {
     @apply py-12 md:py-24;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-sm border  border-zinc-200 bg-zinc-50 p-8 transition-colors hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10;
+  }
+  .glass-card-dark {
+    @apply rounded-sm bg-muteddark border transition-all hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10;
+  }
+  .glass-card-textured {
+    @apply relative rounded-sm border border-zinc-200 bg-white p-8 transition-all overflow-hidden hover:bg-zinc-50 dark:border-white/10 dark:bg-zinc-900/50 dark:hover:bg-white/5;
+  }
+  .glass-card-textured::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: transparent;
+    background-image: radial-gradient(
+      circle at top left,
+      rgba(70, 130, 180, 0.5),
+      transparent 70%
+    );
+    filter: blur(80px);
+    background-repeat: no-repeat;
+    pointer-events: none;
+  }
+  .glass-card-textured > * {
+    position: relative;
+    z-index: 1;
   }
 }

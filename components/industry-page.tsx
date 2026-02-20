@@ -72,7 +72,7 @@ export default function IndustryPage({ config }: { config: IndustryConfig }) {
     <div className="min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <Navigation />
 
-      <section className="sm:py-32 dark:bg-[#030303] bg-white pt-24 pb-24">
+      <section className="sm:py-32 py-24">
         <div className="sm:px-12 xl:px-24 max-w-[1400px] mr-auto ml-auto pr-6 pl-6">
           <div className="mb-8 md:flex md:items-end md:justify-between">
             <div className="max-w-3xl">

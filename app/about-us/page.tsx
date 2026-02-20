@@ -6,6 +6,10 @@ import KpiBox from '../../components/kpi-box';
 import { Icon } from '@iconify/react';
 import { Separator } from '@/components/ui/separator';
 import Team from '@/components/team';
+import { Badge } from '@/components/ui/badge';
+import { CircleCheckBig, CircleDot, ListCheckIcon } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function AboutUsPage() {
   return (
@@ -15,24 +19,22 @@ export default function AboutUsPage() {
       
       
     {/* Global Reach Section with World Map */}
-    <section className="sm:py-32 dark:bg-[#0a0a0a] bg-zinc-100 pt-24 pb-24 overflow-hidden">
+    <section>
         <div className="sm:px-12 xl:px-24 max-w-[1400px] mr-auto ml-auto pr-6 pl-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
             {/* Left Content */}
             <div className="lg:col-span-6">
-            <div className="mb-8 flex w-fit items-center gap-2 rounded-full border border-zinc-200 bg-white/50 px-3 py-1 text-xs text-zinc-600 backdrop-blur-sm dark:border-white/10 dark:bg-white/5 dark:text-zinc-300">
-                <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-                <span>About Us</span>
-              </div>
-              <h2 className="dark:text-white md:text-4xl lg:text-5xl text-3xl font-semibold text-zinc-900 tracking-tight leading-tight">
-                Redefining excellence in chemical distribution
-              </h2>
-              <p className="mt-6 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
+            <Badge variant="outline" className='mt-8'>
+                <CircleDot data-icon="CircleDot" className='text-green-500'/>
+                        Who we are
+              </Badge>
+              <h1 className='pt-8'>Redefining excellence in chemical distribution</h1>
+              <p className="mt-6 text-base leading-relaxed">
                 Tawazon Chemical Co. LLC is a multinational organization with over three decades of experience. Headquartered in Dubai, the company manages a network of offices across Africa, the Middle East, the Subcontinent, and Southeast Asia, ensuring strong regional presence. It supplies specialty chemicals for Coatings, Construction, Inks, Plastics, Packaging, Fiberglass, Rubber, and Food. With strong global partnerships and an optimized supply chain, Tawazon ensures technical support, innovative solutions, and reliable service.
               </p>
               
-              <h3 className="dark:text-white md:text-2xl text-xl font-semibold text-zinc-900 tracking-tight mt-10">
+              <h3 className="mt-10">
                 Global Reach, Local Expertise
               </h3>
               <p className="mt-4 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
@@ -41,7 +43,7 @@ export default function AboutUsPage() {
             </div>
 
             {/* Right Content - World Map with KPIs */}
-            <div className="lg:col-span-6 relative">
+            <div className="lg:col-span-6 relative flex flex-col justify-between h-full">
               
               
               {/* Middle Row with Map */}
@@ -80,22 +82,12 @@ export default function AboutUsPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-3 mb-4 justify-end">
+              <div className="grid grid-cols-3 gap-3 justify-end">
                 <KpiBox value="30+" label="Years of experience" variant="primary" />
                 <KpiBox value="8" label="Office(s) Worldwide" variant="secondary" />
                 <KpiBox value="8" label="Business Verticals" variant="outline" />
-              </div>
-              {/* KPI Boxes - Bottom Row */}
-              <div className="grid grid-cols-3 gap-3 mt-4 justify-center md:justify-end">
-                <KpiBox value="51" label="Countries & Counting" variant="secondary" />
+                <KpiBox value="51" label="Countries" variant="secondary" />
                 <KpiBox value="1800+" label="Satisfied Customers" variant="secondary" />
-                <KpiBox value="350+" label="Suppliers" variant="secondary" />
-              </div>
-              {/* KPI Boxes - Top Row */}
-              
-
-              {/* Mobile KPI for Suppliers */}
-              <div className="mt-4 md:hidden">
                 <KpiBox value="350+" label="Suppliers" variant="secondary" />
               </div>
             </div>
@@ -105,30 +97,27 @@ export default function AboutUsPage() {
 
 
 
-
-      
-
-      <section className="sm:py-32 dark:bg-[#131313] bg-white pt-24 pb-24">
+      <section className='bg-muteddark'>
         <div className="sm:px-12 xl:px-24 max-w-[1400px] mr-auto ml-auto pr-6 pl-6">
           
           <div className="mb-8 md:flex md:items-end md:justify-between">
             <div className="max-w-xl">
-              <div className="mb-8 flex w-fit items-center gap-2 rounded-full border border-zinc-200 bg-white/50 px-3 py-1 text-xs text-zinc-600 backdrop-blur-sm dark:border-white/10 dark:bg-white/5 dark:text-zinc-300">
-                <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-                <span>Ghobash Group Enterprise</span>
-              </div>
-              <h1 className="dark:text-white md:text-5xl text-3xl font-semibold text-zinc-900 tracking-tight">Tawazon - Proud to be a Ghobash Group Enterprise</h1>
-              <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
+            <Badge variant="outline" className='mb-8'>
+                <CircleDot data-icon="CircleDot" className='text-green-500'/>
+                        Ghobash Group Enterprise
+              </Badge>
+              <h2 className='pt-8'>Tawazon - Proud to be a Ghobash Group Enterprise</h2>
+              <p className="mt-4 text-base">
               Tawazon Chemical Co. LLC takes pride in being part of Ghobash Group.
               </p>
               
             </div>
-            <div className="mt-6 md:mt-0">
-                    <a href="#" className="group flex items-center gap-2 text-sm text-zinc-900 hover:text-zinc-600 dark:text-white dark:hover:text-zinc-300">
-                        Visit Ghobash Group
-                        <Icon icon="solar:arrow-right-linear" className="transition-transform group-hover:translate-x-1"></Icon>
-                    </a>
-                </div>
+            <Button variant="outline" asChild>
+                        <Link href="https://ghobash.com/ " target='_blank'>
+                            Read full story
+                            <Icon icon="solar:arrow-right-linear" className="transition-transform group-hover:translate-x-1"></Icon>
+                        </Link>
+                    </Button>
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-12">
@@ -139,74 +128,32 @@ export default function AboutUsPage() {
                   With its corporate strategy focused on growth, sustainability and value creation, Ghobash Group extends a unique approach to nurturing and developing the most rewarding opportunities both intuitively and systematically. The Group seeks progressive partners and principals whose innovative products and services can deliver to the growing needs and aspirations of the public and private sectors.
                   </p>
                   <Separator />
-                  <ul className="animate-fadeSlideIn_0.8s_ease-out_0.4s_both animate-on-scroll mb-8 space-y-4 py-8">
-            <li className="flex items-start gap-3">
-              <div className="shrink-0 w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                  className="lucide lucide-check text-emerald-400">
-                  <path d="M20 6 9 17l-5-5" className=""></path>
-                </svg>
-              </div>
-              <div className="">
-                <p className="font-medium xl:text-left">
-                Established in 1981 with its headquarters in the UAE.
-                </p>
-                
-              </div>
-            </li>
-            <li className="flex items-start gap-3">
-              <div className="shrink-0 w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                  className ="lucide lucide-check text-emerald-400">
-                  <path d="M20 6 9 17l-5-5" className=""></path>
-                </svg>
-              </div>
-              <div className="">
-                <p className="font-medium xl:text-left">
-                Premier privately-owned business conglomerate with unrivalled operational capabilities.
-                </p>
-             
-              </div>
-            </li>
-            <li className="flex items-start gap-3">
-              <div className="shrink-0 w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                  className   ="lucide lucide-check text-emerald-400">
-                  <path d="M20 6 9 17l-5-5" className=""></path>
-                </svg>
-              </div>
-              <div className="">
-                <p className="font-medium xl:text-left">
-                Diverse team of 1,750+ professionals.
-                </p>
-               
-              </div>
-            </li>
-            <li className="flex items-start gap-3">
-              <div className="shrink-0 w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                  className   ="lucide lucide-check text-emerald-400">
-                  <path d="M20 6 9 17l-5-5" className=""></path>
-                </svg>
-              </div>
-              <div className="">
-                <p className="font-medium  xl:text-left">
-                Operating across multiple sectors of the economy.
 
-                </p>
-               
-              </div>
-            </li>
-          </ul>
+                      <div className="flex flex-col items-start gap-6 py-7 text-base leading-relaxed">
+                        <div className='flex items-start gap-3'>
+                            <CircleCheckBig className="text-green-600" width="24" height="24"/>
+                            <p className="font-medium">Established in 1981 with its headquarters in the UAE.</p>
+                        </div>
+                        <div className='flex items-start gap-3'>
+                            <CircleCheckBig className="text-green-600" width="24" height="24"/>
+                            <p className="font-medium">Premier privately-owned business conglomerate with unrivalled operational capabilities.</p>
+                        </div>
+                        <div className='flex items-center gap-3'>
+                            <CircleCheckBig className="text-green-600" width="24" height="24"/>
+                            <p className="font-medium">Diverse team of 1,750+ professionals.</p>
+                        </div>
+                        <div className='flex items-center gap-3'>
+                            <CircleCheckBig className="text-green-600" width="24" height="24"/>
+                            <p className="font-medium">Operating across multiple sectors of the economy.</p>
+                        </div>
+
+                      </div>
+                 
             </div>
 
             {/* Card 2: Minimalist */}
             <div className="md:row-span-">
-              <div className="relative z-10 flex h-full flex-col justify-between backdrop-blur-2xl bg-white/10 dark:bg-zinc-900/10 border dark:border-zinc-800/50 rounded-sm p-4 ">
+              <div className="glass-card-dark p-4 ">
                 
                <Image src="/assests/images/handshake.jpg" alt="Ghobash Group Enterprise" width={500} height={500} className="w-full h-full object-cover dark:brightness-75 rounded-sm" />
                
@@ -219,13 +166,9 @@ export default function AboutUsPage() {
 
 
 
-
-
-
-
-<section className="dark:bg-[#0a0a0a] bg-zinc-100 pb-24 pt-24 sm:py-32">
-  <Team />
-</section>
+      <section>
+        <Team />
+      </section>
 
 
 

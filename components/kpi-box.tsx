@@ -8,21 +8,21 @@ interface KpiBoxProps {
 
 const KpiBox: React.FC<KpiBoxProps> = ({ value, label, variant = 'secondary' }) => {
   const variants = {
-    primary: 'bg-emerald-300 text-emerald-950 border-emerald-500/60',
-    secondary: 'bg-[#0e1513] text-white border-emerald-900/70',
-    outline: 'bg-transparent text-white border-emerald-700/50',
+    primary: 'glass-card-textured p-7',
+    secondary: 'glass-card-textured p-7',
+    outline: 'glass-card-textured p-7',
   };
 
   const textVariants = {
-    primary: 'text-emerald-950/80',
-    secondary: 'text-emerald-100/85',
-    outline: 'text-emerald-100/70',
+    primary: 'text-zinc-900 dark:text-white',
+    secondary: 'text-zinc-900 dark:text-white',
+    outline: 'text-zinc-900 dark:text-white',
   };
 
   return (
-    <article className={`px-5 py-5 shadow-sm border flex flex-col justify-between ${variants[variant]}`}>
+    <article className={`flex flex-col justify-between ${variants[variant]}`}>
       <div>
-        <p className="text-3xl md:text-4xl font-semibold tracking-tight">
+        <p className="text-2xl md:text-4xl font-semibold tracking-tight">
           {value}
         </p>
         <p className={`mt-1 text-sm ${textVariants[variant]}`}>

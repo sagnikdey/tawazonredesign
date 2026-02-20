@@ -1,8 +1,10 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 import { Icon } from '@iconify/react';
-import { cards } from '../services/card';
+import { Button } from '@/components/ui/button';
+import { industries } from '@/services/industries';
 
 const Card = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -39,7 +41,7 @@ const Card = () => {
   };
 
   const handleNext = () => {
-    if (currentIndex < cards.length - 1) {
+    if (currentIndex < industries.length - 1) {
       scrollToIndex(currentIndex + 1);
     }
   };
@@ -95,7 +97,7 @@ const Card = () => {
       const gap = 24;
       const cardWidth = (containerWidth - (3 * gap)) / 3.5;
       const newIndex = Math.round(carouselRef.current.scrollLeft / (cardWidth + gap));
-      setCurrentIndex(Math.max(0, Math.min(newIndex, cards.length - 1)));
+      setCurrentIndex(Math.max(0, Math.min(newIndex, industries.length - 1)));
     }
   };
 
@@ -110,7 +112,7 @@ const Card = () => {
         const gap = 24;
         const cardWidth = (containerWidth - (3 * gap)) / 3.5;
         const newIndex = Math.round(carouselRef.current.scrollLeft / (cardWidth + gap));
-        setCurrentIndex(Math.max(0, Math.min(newIndex, cards.length - 1)));
+        setCurrentIndex(Math.max(0, Math.min(newIndex, industries.length - 1)));
       }
     };
 
@@ -151,7 +153,7 @@ const Card = () => {
 
           <button
             onClick={handleNext}
-            disabled={currentIndex === cards.length - 1}
+            disabled={currentIndex === industries.length - 1}
             className="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white/90 dark:bg-white/10 backdrop-blur-sm border border-zinc-200 dark:border-white/10 shadow-lg hover:bg-white dark:hover:bg-white/20 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="Next card"
           >
@@ -176,49 +178,42 @@ const Card = () => {
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            {cards.map((card, index) => (
+            {industries.map((industry, index) => (
               <div
-                key={card.id}
-                className="flex-none snap-center"
-                style={{
-                  width: 'calc((100% - 72px) / 3.5)',
-                  minWidth: 'calc((100% - 72px) / 3.5)',
-                }}
+                key={industry.id}
+                className="
+    flex-none snap-center
+    w-[calc((100%-5px)/1.2)] min-w-[calc((100%-5px)/1.2)]
+    sm:w-[calc((100%-29px)/2.2)] sm:min-w-[calc((100%-29px)/2.2)]
+    lg:w-[calc((100%-72px)/3.5)] lg:min-w-[calc((100%-72px)/3.5)]
+  "
               >
-                <div className="glass-card group relative overflow-hidden border border-zinc-200 bg-zinc-50 transition-all hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 h-full p-4">
-                  {/* Image */}
-                  <div className="relative h-48 md:h-48 overflow-hidden">
-                    <img
-                      src={card.image}
-                      alt={card.header}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent"></div>
-                    
-
+                <div className="glass-card-dark group relative overflow-hidden h-full p-6 md:p-8">
+                  {/* Icon */}
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 bg-white text-zinc-900 shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-white">
+                    <Icon icon={industry.icon} width="20" strokeWidth="1.5" />
                   </div>
 
-                  {/* Bottom Content */}
-                  <div className="py-6 md:py-8">
-                    <h4 className='mb-2 text-lg font-semibold text-zinc-900 dark:text-white'>{card.header}</h4>
-                    <p className="text-sm md:text-base leading-relaxed text-zinc-600 dark:text-zinc-400 mb-6">
-                        
-                      {card.content}
+                  {/* Content */}
+                  <div className="space-y-2">
+                    <h4 className="text-xl font-medium text-zinc-900 dark:text-white">
+                      {industry.name}
+                    </h4>
+                    <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 mb-6">
+                      {industry.description}
                     </p>
 
-                    {/* Button */}
-                    <a
-                      href={card.buttonLink}
-                      className="group/btn inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-white/10 text-sm font-medium text-zinc-900 dark:text-white hover:bg-zinc-100 dark:hover:bg-white/20 transition-all"
-                    >
-                      {card.buttonText}
-                      <Icon
-                        icon="solar:arrow-right-linear"
-                        className="transition-transform group-hover/btn:translate-x-1"
-                        width="16"
-                        strokeWidth="1.5"
-                      />
-                    </a>
+                    <Button variant="outline" className="group-hover:bg-accent group-hover:text-accent-foreground group-hover:border-accent" asChild>
+                      <Link href={industry.link} className="inline-flex items-center gap-2">
+                        Read More
+                        <Icon
+                          icon="solar:arrow-right-linear"
+                          className="transition-transform group-hover:translate-x-0.5"
+                          width="16"
+                          strokeWidth="1.5"
+                        />
+                      </Link>
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -227,7 +222,7 @@ const Card = () => {
 
           {/* Navigation Dots */}
           <div className="flex justify-center items-center gap-2 mt-8">
-            {cards.map((_, index) => (
+            {industries.map((_, index) => (
               <button
                 key={index}
                 onClick={() => scrollToIndex(index)}
