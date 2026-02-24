@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Icon } from '@iconify/react';
 import ThemeToggle from './theme-toggle';
 import { Button } from './ui/button';
+import { ArrowRight } from 'lucide-react';
 
 const navigation = () => {
   return (
@@ -20,19 +21,17 @@ const navigation = () => {
             <div className="hidden items-center gap-2 md:flex">
                 <Button variant="ghost" asChild><Link href="/about-us">About Us</Link></Button>
                 <Button variant="ghost" asChild><Link href="/industries">Industries</Link></Button>
-                <Button variant="ghost" asChild><Link href="/suppliers">Suppliers</Link></Button>
-                <Button variant="ghost" asChild><Link href="/careers">Careers</Link></Button>
+                {/* <Button variant="ghost" asChild><Link href="/suppliers">Suppliers</Link></Button>
+                <Button variant="ghost" asChild><Link href="/careers">Careers</Link></Button> */}
                 <Button variant="ghost" asChild><Link href="/locations">Locations</Link></Button>
             </div>
 
             {/* Actions */}
             <div className="flex items-center gap-4">
                 <ThemeToggle />
-                <a href="#" className="hidden text-xs font-medium text-zinc-600 transition-opacity hover:opacity-70 dark:text-zinc-300 md:block">Log in</a>
-                <a href="#" className="group relative flex items-center gap-2 rounded-full bg-zinc-900 px-4 py-1.5 text-xs font-medium text-white transition-all hover:bg-zinc-700 dark:bg-white dark:text-black dark:hover:bg-zinc-200">
-                    <span>Get Connected</span>
-                    <Icon icon="solar:arrow-right-linear" className="transition-transform group-hover:translate-x-0.5" strokeWidth="1.5" />
-                </a>
+                {/* <a href="#" className="hidden text-xs font-medium text-zinc-600 transition-opacity hover:opacity-70 dark:text-zinc-300 md:block">Log in</a> */}
+                <Button variant="default" size="sm" asChild><Link href="/locations">Get Connected <ArrowRight /></Link>
+                </Button>
             </div>
         </div>
     </nav>

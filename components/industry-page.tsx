@@ -104,7 +104,7 @@ export default function IndustryPage({ config }: { config: IndustryConfig }) {
                 config.categories.map((cat) => (
                   <div
                     key={cat.id}
-                    className="glass-card group relative overflow-hidden border border-zinc-200 bg-zinc-50 p-8 transition-colors hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+                    className="glass-card group relative overflow-hidden"
                   >
                     <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 bg-white text-zinc-900 shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-white">
                       <Icon
@@ -113,16 +113,15 @@ export default function IndustryPage({ config }: { config: IndustryConfig }) {
                         strokeWidth="1.5"
                       />
                     </div>
-                    <h2 className="text-xl font-medium dark:text-white text-zinc-900 dark:mb-2">
+                    <h4>
                       {cat.title}
-                    </h2>
-                    <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                    </h4>
+                    <p className="text-sm leading-relaxed">
                       {cat.description}
                     </p>
                     <div className="pt-4">
                       <Button
                         variant="outline"
-                        className="group-hover:bg-accent group-hover:group-hover:border-accent"
                         onClick={() => openProductsSheet(cat)}
                       >
                         View Products

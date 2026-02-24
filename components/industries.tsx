@@ -14,7 +14,6 @@ const industries = () => {
         <div className="sm:px-12 xl:px-24 max-w-[1400px] mr-auto ml-auto pr-6 pl-6">
             
             <div className="mb-8 md:flex md:items-end md:justify-between">
-                
                 <div className="max-w-xl mt-6 md:mt-0">
                     <Badge variant="outline">
                         <CircleDot data-icon="CircleDot" className='text-green-500'/>Industries Served
@@ -23,11 +22,9 @@ const industries = () => {
                     <p className="mt-4 text-muted-foreground">Tawazon actively develops and supplies innovative, eco-friendly chemical solutions that support sustainability.
                         across diverse industries
                     </p>
-                </div>
-               
-                
+                </div>                
                 <div className="mt-6 md:mt-0">
-                    <Button variant="outline" asChild>
+                    <Button variant="default" asChild>
                         <Link href="/industries">
                             Read full story
                             <Icon icon="solar:arrow-right-linear" className="transition-transform group-hover:translate-x-1"></Icon>

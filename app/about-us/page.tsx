@@ -20,26 +20,29 @@ export default function AboutUsPage() {
       
     {/* Global Reach Section with World Map */}
     <section>
-        <div className="sm:px-12 xl:px-24 max-w-[1400px] mr-auto ml-auto pr-6 pl-6">
+        <div className="px-6 md:px-12 max-w-[1400px] mx-auto pt-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
             {/* Left Content */}
             <div className="lg:col-span-6">
-            <Badge variant="outline" className='mt-8'>
+            <Badge variant="outline" className='mb-8'>
                 <CircleDot data-icon="CircleDot" className='text-green-500'/>
                         Who we are
               </Badge>
-              <h1 className='pt-8'>Redefining excellence in chemical distribution</h1>
+              <h1>Redefining excellence in chemical distribution</h1>
               <p className="mt-6 text-base leading-relaxed">
-                Tawazon Chemical Co. LLC is a multinational organization with over three decades of experience. Headquartered in Dubai, the company manages a network of offices across Africa, the Middle East, the Subcontinent, and Southeast Asia, ensuring strong regional presence. It supplies specialty chemicals for Coatings, Construction, Inks, Plastics, Packaging, Fiberglass, Rubber, and Food. With strong global partnerships and an optimized supply chain, Tawazon ensures technical support, innovative solutions, and reliable service.
+                Tawazon Chemical Co. LLC is a multinational organization with over three decades of experience. Headquartered in Dubai, the company manages a network of offices across Africa, the Middle East, the Subcontinent, and Southeast Asia, ensuring strong regional presence. </p>
+                <p className="mt-4 leading-relaxed">It supplies specialty chemicals for Coatings, Construction, Inks, Plastics, Packaging, Fiberglass, Rubber, and Food. <p/>
+                <p className="mt-4 leading-relaxed">With strong global partnerships and an optimized supply chain, Tawazon ensures technical support, innovative solutions, and reliable service.</p>
               </p>
               
               <h3 className="mt-10">
                 Global Reach, Local Expertise
               </h3>
               <p className="mt-4 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
-                Operating in diverse markets across the globe, Tawazon&apos;s reach is extensive, yet its approach remains deeply personal. The company recognizes that every market comes with its own needs and challenges, and is committed to delivering solutions as dynamic and diverse as the industries it serves. With a global footprint spanning over eight offices and expertise across eight specialized business verticals, Tawazon&apos;s team of more than 165 skilled professionals works collaboratively to provide tailored solutions that empower customers and drive progress across a wide range of focused industries.
-              </p>
+                With a global footprint spanning over eight offices and expertise across eight specialized business verticals</p>
+                <p className="mt-4 leading-relaxed">Tawazon&apos;s team of more than 165 skilled professionals works collaboratively to provide tailored solutions that empower customers and drive progress across a wide range of focused industries.</p>
+              
             </div>
 
             {/* Right Content - World Map with KPIs */}
@@ -56,7 +59,7 @@ export default function AboutUsPage() {
                 {/* World Map */}
                 <div className="relative w-full h-[300px] md:h-[400px]">
                   <Image
-                    src="/assests/images/Flat-world-map-with-transparent-background.png"
+                    src="/assets/images/Flat-world-map-with-transparent-background.png"
                     alt="World map showing Tawazon global presence"
                     fill
                     className="object-contain opacity-60"
@@ -98,7 +101,7 @@ export default function AboutUsPage() {
 
 
       <section className='bg-muteddark'>
-        <div className="sm:px-12 xl:px-24 max-w-[1400px] mr-auto ml-auto pr-6 pl-6">
+        <div className="px-6 md:px-12 max-w-[1400px] mx-auto">
           
           <div className="mb-8 md:flex md:items-end md:justify-between">
             <div className="max-w-xl">
@@ -106,15 +109,15 @@ export default function AboutUsPage() {
                 <CircleDot data-icon="CircleDot" className='text-green-500'/>
                         Ghobash Group Enterprise
               </Badge>
-              <h2 className='pt-8'>Tawazon - Proud to be a Ghobash Group Enterprise</h2>
+              <h2>Tawazon - Proud to be a Ghobash Group Enterprise</h2>
               <p className="mt-4 text-base">
               Tawazon Chemical Co. LLC takes pride in being part of Ghobash Group.
               </p>
               
             </div>
-            <Button variant="outline" asChild>
+            <Button variant="default" asChild>
                         <Link href="https://ghobash.com/ " target='_blank'>
-                            Read full story
+                            Ghobash Group website
                             <Icon icon="solar:arrow-right-linear" className="transition-transform group-hover:translate-x-1"></Icon>
                         </Link>
                     </Button>
@@ -155,7 +158,7 @@ export default function AboutUsPage() {
             <div className="md:row-span-">
               <div className="glass-card-dark p-4 ">
                 
-               <Image src="/assests/images/handshake.jpg" alt="Ghobash Group Enterprise" width={500} height={500} className="w-full h-full object-cover dark:brightness-75 rounded-sm" />
+               <Image src="/assets/images/handshake.jpg" alt="Ghobash Group Enterprise" width={500} height={500} className="w-full h-full object-cover dark:brightness-75 rounded-sm" />
                
                
                </div>
@@ -166,7 +169,7 @@ export default function AboutUsPage() {
 
 
 
-      <section>
+      <section id="team">
         <Team />
       </section>
 

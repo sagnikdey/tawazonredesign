@@ -24,7 +24,7 @@ const about = () => {
                     materials.</p>
                 </div>
                 <div className="mt-6 md:mt-0">
-                    <Button variant="outline" asChild>
+                    <Button variant="default" asChild>
                         <Link href="/about-us">
                             Read full story
                             <Icon icon="solar:arrow-right-linear" className="transition-transform group-hover:translate-x-1"></Icon>

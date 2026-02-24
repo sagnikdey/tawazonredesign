@@ -69,10 +69,10 @@ export default function ContactSection() {
       
 
       {/* Right: Contact Form */}
-      <div className="glass-card rounded-lg border border-zinc-200 bg-zinc-50 p-6 dark:border-white/10 dark:bg-white/5 md:p-8">
+      <div className="glass-card">
         {isSuccess ? (
           <div className="flex flex-col items-center justify-center py-12 text-center">
-            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400">
+            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 bg-white text-zinc-900 shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-white">
               <Icon icon="solar:check-circle-linear" width="32" strokeWidth="1.5" />
             </div>
             <h3 className="text-xl font-semibold text-zinc-900 dark:text-white">
@@ -198,33 +198,35 @@ export default function ContactSection() {
 
         {dubaiOffice && (
           <div className="flex items-start gap-3">
-            <Icon
-              icon="solar:map-point-linear"
-              className="mt-0.5 shrink-0 text-zinc-600 dark:text-zinc-400"
-              width="20"
-              strokeWidth="1.5"
-            />
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">
-              {dubaiOffice.address}
-              <br />
-              Dubai
-            </p>
+            <div className="mb-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-zinc-200 bg-white text-zinc-900 shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-white">
+              <Icon
+                icon="solar:map-point-linear"
+                width="20"
+                height="20"
+                strokeWidth="1.5"
+              />
+            </div>
+            <div className="space-y-3">
+              <p>{dubaiOffice.address}</p>
+              <a
+                href="tel:+97143368230"
+                className="flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+              >
+                <Icon icon="solar:phone-linear" width="16" strokeWidth="1.5" />
+                +971 4 3368230
+              </a>
+              <a
+                href="mailto:info@tawazon.ae"
+                className="flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+              >
+                <Icon icon="solar:letter-linear" width="16" strokeWidth="1.5" />
+                info@tawazon.ae
+              </a>
+            </div>
           </div>
         )}
 
-        <div>
-          <p className="mb-2 text-sm font-medium text-zinc-900 dark:text-white">Follow us on</p>
-          <a
-            href="https://www.linkedin.com/company/tawazon"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 bg-zinc-900 text-white transition-colors hover:bg-zinc-700 dark:border-white/10 dark:bg-white/10 dark:hover:bg-white/20"
-            aria-label="LinkedIn"
-          >
-            <Icon icon="mdi:linkedin" width="20" />
-          </a>
-        </div>
-
+       
         <div className="aspect-video w-full overflow-hidden rounded-lg border border-zinc-200 dark:border-white/10">
           <iframe
             src={AL_KHALEEJ_MAP_EMBED}

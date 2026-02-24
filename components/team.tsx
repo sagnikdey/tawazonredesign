@@ -10,8 +10,8 @@ const team = () => {
     name: 'OUSSAMA GHANDOUR',
     title: 'Managing Director – Tawazon Chemical Company LLC',
     imageSrc: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1200&h=1500&fit=crop',
-    bio: `In my pre-Tawazon days, during the 1980's, I managed regional distribution for a multinational company. I was in quest of professional and transparent distributors in the Middle East region. Who besides fulfilling many other relevant criteria, focused on specific industries. Not being very successful, prompted me and my partner to decide on starting one of our own. Tawazon Chemical Co LLC was the result. It has been three decades since, and I hope that you our partners – suppliers, customers and service providers– are benefiting from this continued endeavor.`,
-    details: 'Over the years, we have built a loyal techno-commercial and professional team who portray the Tawazon character of honesty, trustworthiness and transparency and work on paying attention to detail while meeting critical time lines. The dedicated management and staff at our centralized and satellite offices and warehouses offer services that assist customers with inventory management, arranging international imports and local stocks, hazardous cargo precautions and transportation.',
+    bio: `In the 1980s, while managing regional distribution for a multinational, I struggled to find professional, transparent distributors in the Middle East who were truly focused on specific industries. This gap led my partner and me to establish Tawazon Chemical Co. LLC. More than three decades later, I hope our partners – suppliers, customers, and service providers – continue to benefit from that decision.`,
+    details: 'Over the years, we have built a loyal techno-commercial team that reflects Tawazon’s character of honesty, trustworthiness, and transparency. From our centralized and satellite offices and warehouses, they support customers with careful inventory management, international imports and local stocks, and the safe handling and transportation of hazardous cargo.',
     variant: 'featured',
   };
 
