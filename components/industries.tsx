@@ -16,7 +16,7 @@ const industries = () => {
             <div className="mb-8 md:flex md:items-end md:justify-between">
                 <div className="max-w-xl mt-6 md:mt-0">
                     <Badge variant="outline">
-                        <CircleDot data-icon="CircleDot" className='text-green-500'/>Industries Served
+                        <CircleDot data-icon="CircleDot" className="text-brand-accent"/>Industries Served
                     </Badge>
                     <h2 className="pt-8">Innovative solutions for a sustainable tomorrow.</h2>
                     <p className="mt-4 text-muted-foreground">Tawazon actively develops and supplies innovative, eco-friendly chemical solutions that support sustainability.

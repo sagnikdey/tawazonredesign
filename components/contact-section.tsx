@@ -72,13 +72,13 @@ export default function ContactSection() {
       <div className="glass-card">
         {isSuccess ? (
           <div className="flex flex-col items-center justify-center py-12 text-center">
-            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 bg-white text-zinc-900 shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-white">
+            <div className="icon-box">
               <Icon icon="solar:check-circle-linear" width="32" strokeWidth="1.5" />
             </div>
-            <h3 className="text-xl font-semibold text-zinc-900 dark:text-white">
+            <h3 className="text-foreground text-xl font-semibold">
               Message sent successfully
             </h3>
-            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+            <p className="text-muted-foreground mt-2 text-sm">
               We&apos;ll get back to you shortly.
             </p>
           </div>
@@ -87,7 +87,7 @@ export default function ContactSection() {
             <FieldGroup>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <Field data-invalid={!!errors.name}>
-                  <FieldLabel htmlFor="name" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                  <FieldLabel htmlFor="name" className="text-foreground text-sm font-medium">
                     Name
                   </FieldLabel>
                   <Input
@@ -102,7 +102,7 @@ export default function ContactSection() {
                   {errors.name && <FieldError>{errors.name}</FieldError>}
                 </Field>
                 <Field>
-                  <FieldLabel htmlFor="phone" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                  <FieldLabel htmlFor="phone" className="text-foreground text-sm font-medium">
                     Phone
                   </FieldLabel>
                   <Input
@@ -118,7 +118,7 @@ export default function ContactSection() {
 
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <Field data-invalid={!!errors.email}>
-                  <FieldLabel htmlFor="email" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                  <FieldLabel htmlFor="email" className="text-foreground text-sm font-medium">
                     Email
                   </FieldLabel>
                   <Input
@@ -133,7 +133,7 @@ export default function ContactSection() {
                   {errors.email && <FieldError>{errors.email}</FieldError>}
                 </Field>
                 <Field>
-                  <FieldLabel htmlFor="company" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                  <FieldLabel htmlFor="company" className="text-foreground text-sm font-medium">
                     Company
                   </FieldLabel>
                   <Input
@@ -148,7 +148,7 @@ export default function ContactSection() {
               </div>
 
               <Field>
-                <FieldLabel htmlFor="subject" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                <FieldLabel htmlFor="subject" className="text-foreground text-sm font-medium">
                   Subject
                 </FieldLabel>
                 <Input
@@ -162,7 +162,7 @@ export default function ContactSection() {
               </Field>
 
               <Field data-invalid={!!errors.message}>
-                <FieldLabel htmlFor="message" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                <FieldLabel htmlFor="message" className="text-foreground text-sm font-medium">
                   Message
                 </FieldLabel>
                 <Textarea
@@ -181,7 +181,8 @@ export default function ContactSection() {
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full rounded-lg bg-zinc-900 px-6 py-3 text-sm font-medium uppercase tracking-wide text-white transition-colors hover:bg-zinc-700 disabled:opacity-50 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+              variant="default"
+              className="w-full rounded-lg px-6 py-3 text-sm font-medium uppercase tracking-wide"
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </Button>
@@ -198,7 +199,7 @@ export default function ContactSection() {
 
         {dubaiOffice && (
           <div className="flex items-start gap-3">
-            <div className="mb-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-zinc-200 bg-white text-zinc-900 shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-white">
+            <div className="icon-box shrink-0">
               <Icon
                 icon="solar:map-point-linear"
                 width="20"
@@ -210,14 +211,14 @@ export default function ContactSection() {
               <p>{dubaiOffice.address}</p>
               <a
                 href="tel:+97143368230"
-                className="flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+                className="text-muted-foreground hover:text-foreground flex items-center gap-2 text-sm"
               >
                 <Icon icon="solar:phone-linear" width="16" strokeWidth="1.5" />
                 +971 4 3368230
               </a>
               <a
                 href="mailto:info@tawazon.ae"
-                className="flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+                className="text-muted-foreground hover:text-foreground flex items-center gap-2 text-sm"
               >
                 <Icon icon="solar:letter-linear" width="16" strokeWidth="1.5" />
                 info@tawazon.ae
@@ -227,7 +228,7 @@ export default function ContactSection() {
         )}
 
        
-        <div className="aspect-video w-full overflow-hidden rounded-lg border border-zinc-200 dark:border-white/10">
+        <div className="border-border aspect-video w-full overflow-hidden rounded-lg border">
           <iframe
             src={AL_KHALEEJ_MAP_EMBED}
             width="100%"

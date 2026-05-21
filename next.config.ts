@@ -23,6 +23,11 @@ const nextConfig: NextConfig = {
         hostname: "api.dicebear.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        pathname: "/**",
+      },
     ],
   },
 };

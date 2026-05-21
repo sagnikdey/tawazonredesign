@@ -1,6 +1,6 @@
-import IndustryPage from '@/components/industry-page';
+import { IndustryPageWithHeader } from '@/components/industry-page-with-header';
 import { FIBERGLASS_CONFIG } from '@/services/fiberglass';
 
-export default function FiberglassPage() {
-  return <IndustryPage config={FIBERGLASS_CONFIG} />;
+export default async function FiberglassPage() {
+  return <IndustryPageWithHeader config={FIBERGLASS_CONFIG} />;
 }

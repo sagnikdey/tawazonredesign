@@ -13,6 +13,7 @@ import {
   SheetTitle,
 } from '@/components/ui/sheet';
 import type { IndustryConfig, IndustryCategory } from '@/services/industries-types';
+import { PageHeaderContent } from '@/components/page-header-content';
 
 const INDUSTRY_ICONS: Record<string, string> = {
   binders: 'solar:pill-linear',
@@ -50,7 +51,13 @@ function getCategoryIcon(category: IndustryCategory): string {
   return INDUSTRY_ICONS[category.id] ?? INDUSTRY_ICONS.default;
 }
 
-export default function IndustryPage({ config }: { config: IndustryConfig }) {
+export default function IndustryPage({
+  config,
+  header,
+}: {
+  config: IndustryConfig;
+  header: { badgeLabel: string; heading: string };
+}) {
   const [expandedCategoryId, setExpandedCategoryId] = useState<string | null>(
     null
   );
@@ -69,23 +76,15 @@ export default function IndustryPage({ config }: { config: IndustryConfig }) {
   };
 
   return (
-    <div className="min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="min-h-screen items-center justify-center">
       <Navigation />
 
       <section className="sm:py-32 py-24">
         <div className="sm:px-12 xl:px-24 max-w-[1400px] mr-auto ml-auto pr-6 pl-6">
           <div className="mb-8 md:flex md:items-end md:justify-between">
             <div className="max-w-3xl">
-              <div className="mb-8 flex w-fit items-center gap-2 rounded-full border border-zinc-200 bg-white/50 px-3 py-1 text-xs text-zinc-600 backdrop-blur-sm dark:border-white/10 dark:bg-white/5 dark:text-zinc-300">
-                <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-                <span>Industries Served</span>
-                <span>/</span>
-                <span>{config.breadcrumb}</span>
-              </div>
-              <h2 className="dark:text-white md:text-4xl lg:text-5xl text-3xl font-semibold text-zinc-900 tracking-tight leading-tight">
-                {config.name} Division
-              </h2>
-              <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
+              <PageHeaderContent badgeLabel={header.badgeLabel} heading={header.heading} />
+              <p className="mt-4 text-base">
                 {config.overview}
               </p>
             </div>
@@ -104,21 +103,23 @@ export default function IndustryPage({ config }: { config: IndustryConfig }) {
                 config.categories.map((cat) => (
                   <div
                     key={cat.id}
-                    className="glass-card group relative overflow-hidden"
+                    className="glass-card group relative overflow-hidden justify-between h-full flex flex-col"
                   >
-                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 bg-white text-zinc-900 shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-white">
-                      <Icon
-                        icon={getCategoryIcon(cat)}
-                        width="20"
-                        strokeWidth="1.5"
-                      />
+                    <div>
+                      <div className="icon-box">
+                        <Icon
+                          icon={getCategoryIcon(cat)}
+                          width="20"
+                          strokeWidth="1.5"
+                        />
+                      </div>
+                      <h4>
+                        {cat.title}
+                      </h4>
+                      <p className="text-sm leading-relaxed">
+                        {cat.description}
+                      </p>
                     </div>
-                    <h4>
-                      {cat.title}
-                    </h4>
-                    <p className="text-sm leading-relaxed">
-                      {cat.description}
-                    </p>
                     <div className="pt-4">
                       <Button
                         variant="outline"
@@ -132,23 +133,26 @@ export default function IndustryPage({ config }: { config: IndustryConfig }) {
               ) : (
                 <>
                   {/* First category card */}
-                  <div className="glass-card group relative overflow-hidden border border-zinc-200 bg-zinc-50 p-8 transition-colors hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10">
-                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 bg-white text-zinc-900 shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-white">
-                      <Icon
-                        icon={getCategoryIcon(firstCategory)}
-                        width="20"
-                        strokeWidth="1.5"
-                      />
+                  <div className="glass-card group relative overflow-hidden justify-between h-full flex flex-col">
+                    <div>
+                      <div className="icon-box">
+                        <Icon
+                          icon={getCategoryIcon(firstCategory)}
+                          width="20"
+                          strokeWidth="1.5"
+                        />
+                      </div>
+                      <h2 className="text-xl font-medium mb-2">
+                        {firstCategory.title}
+                      </h2>
+                      <p className="text-sm leading-relaxed">
+                        {firstCategory.description}
+                      </p>
                     </div>
-                    <h2 className="text-xl font-medium dark:text-white text-zinc-900 dark:mb-2">
-                      {firstCategory.title}
-                    </h2>
-                    <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                      {firstCategory.description}
-                    </p>
                     <div className="pt-4">
                       <Button
-                        variant="outline"
+                        variant="default"
+                        size="sm"
                         className="group-hover:bg-accent group-hover:group-hover:border-accent"
                         onClick={() => setExpandedCategoryId(firstCategory.id)}
                       >
@@ -159,23 +163,26 @@ export default function IndustryPage({ config }: { config: IndustryConfig }) {
 
                   {/* Other cards */}
                   {otherCards ? (
-                otherCards.map((card, index) => (
+                otherCards.map((card) => (
                   <div
-                    key={index}
-                    className="glass-card group relative overflow-hidden border border-zinc-200 bg-zinc-50 p-8 transition-colors hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+                    key={card.link}
+                    className="glass-card group relative overflow-hidden h-full flex flex-col justify-between"
                   >
-                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 bg-white text-zinc-900 shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-white">
-                      <Icon icon={card.icon} width="20" strokeWidth="1.5" />
+                    <div>
+                      <div className="icon-box">
+                        <Icon icon={card.icon} width="20" strokeWidth="1.5" />
+                      </div>
+                      <h2 className="text-xl font-medium mb-2">
+                        {card.name}
+                      </h2>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {card.description}
+                      </p>
                     </div>
-                    <h2 className="text-xl font-medium dark:text-white text-zinc-900 dark:mb-2">
-                      {card.name}
-                    </h2>
-                    <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                      {card.description}
-                    </p>
                     <div className="pt-4">
                       <Button
-                        variant="outline"
+                        variant="default"
+                        size="sm"
                         className="group-hover:bg-accent group-hover:group-hover:border-accent"
                         asChild
                       >
@@ -188,19 +195,19 @@ export default function IndustryPage({ config }: { config: IndustryConfig }) {
                     remainingCategories.map((cat) => (
                       <div
                         key={cat.id}
-                        className="glass-card group relative overflow-hidden border border-zinc-200 bg-zinc-50 p-8 transition-colors hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+                        className="glass-card group relative overflow-hidden"
                       >
-                        <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 bg-white text-zinc-900 shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-white">
+                        <div className="icon-box">
                           <Icon
                             icon={getCategoryIcon(cat)}
                             width="20"
                             strokeWidth="1.5"
                           />
                         </div>
-                        <h2 className="text-xl font-medium dark:text-white text-zinc-900 dark:mb-2">
+                        <h2 className="text-foreground text-xl font-medium">
                           {cat.title}
                         </h2>
-                        <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                        <p className="text-muted-foreground text-sm leading-relaxed">
                           {cat.description}
                         </p>
                         <div className="pt-4">
@@ -237,7 +244,7 @@ export default function IndustryPage({ config }: { config: IndustryConfig }) {
 
                 return (
                   <div
-                    className={`glass-card group relative overflow-hidden border border-zinc-200 bg-zinc-50 p-8 transition-colors hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 sm:p-8 transition-transform duration-500 ${
+                    className={`glass-card group relative overflow-hidden sm:p-8 transition-transform duration-500 ${
                       expandedCategoryId ? 'scale-100' : 'scale-95'
                     }`}
                   >
@@ -247,7 +254,7 @@ export default function IndustryPage({ config }: { config: IndustryConfig }) {
                         type="button"
                         onClick={() => setExpandedCategoryId(null)}
                         aria-label="Close"
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full "
                       >
                         <Icon
                           icon="solar:close-circle-linear"
@@ -257,7 +264,7 @@ export default function IndustryPage({ config }: { config: IndustryConfig }) {
                       </button>
                     </div>
 
-                    <p className="mb-8 text-sm leading-relaxed dark:text-white">
+                    <p className="mb-8 text-sm leading-relaxed">
                       {expanded.description}
                     </p>
 
@@ -266,7 +273,7 @@ export default function IndustryPage({ config }: { config: IndustryConfig }) {
                         ? subcats.map((cat) => (
                             <div
                               key={cat.id}
-                              className="flex flex-col glass-card group relative overflow-hidden border border-zinc-200 bg-zinc-50 p-8 transition-colors hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 transition-colors hover:border-emerald-500/60"
+                              className="flex flex-col glass-card group relative "
                             >
                               <h3 className="text-base font-semibold mb-2">
                                 {cat.title}
@@ -287,7 +294,7 @@ export default function IndustryPage({ config }: { config: IndustryConfig }) {
                         : subcats.map((cat) => (
                             <div
                               key={cat.id}
-                              className="flex flex-col glass-card group relative overflow-hidden border border-zinc-200 bg-zinc-50 p-8 transition-colors hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 transition-colors hover:border-emerald-500/60"
+                              className="flex flex-col glass-card group relative overflow-hidden"
                             >
                               <h3 className="text-base font-semibold mb-2">
                                 {cat.title}
@@ -328,22 +335,31 @@ export default function IndustryPage({ config }: { config: IndustryConfig }) {
             </SheetTitle>
           </SheetHeader>
           <div className="flex flex-col gap-4 px-4 pb-8">
-            {selectedCategory?.products?.map((product, idx) => (
+            {selectedCategory?.products?.map((product, idx) => {
+                  const priorDupes = selectedCategory.products
+                    .slice(0, idx)
+                    .filter(
+                      (p) => p.name === product.name && p.description === product.description,
+                    ).length
+                  const productKey =
+                    `${selectedCategory.id}:${product.name}:${product.description.length}:${priorDupes}`
+                  return (
                   <div
-                    key={idx}
-                    className="rounded-lg border border-zinc-200 dark:border-white/10 p-4"
+                    key={productKey}
+                    className="border-border rounded-lg border p-4"
                   >
-                    <h4 className="font-semibold text-zinc-900 dark:text-white">
+                    <h4 className="text-foreground font-semibold">
                       {product.name}
                     </h4>
-                    <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                    <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
                       {product.description}
                     </p>
                     <Button size="sm" variant="outline" className="mt-3">
                       Request TDS
                     </Button>
                   </div>
-                ))}
+                )
+            })}
           </div>
         </SheetContent>
       </Sheet>

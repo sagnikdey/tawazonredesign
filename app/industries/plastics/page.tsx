@@ -1,6 +1,6 @@
-import IndustryPage from '@/components/industry-page';
+import { IndustryPageWithHeader } from '@/components/industry-page-with-header';
 import { PLASTICS_CONFIG } from '@/services/plastics';
 
-export default function PlasticsPage() {
-  return <IndustryPage config={PLASTICS_CONFIG} />;
+export default async function PlasticsPage() {
+  return <IndustryPageWithHeader config={PLASTICS_CONFIG} />;
 }

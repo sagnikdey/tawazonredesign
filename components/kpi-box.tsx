@@ -14,9 +14,9 @@ const KpiBox: React.FC<KpiBoxProps> = ({ value, label, variant = 'secondary' }) 
   };
 
   const textVariants = {
-    primary: 'text-zinc-900 dark:text-white',
-    secondary: 'text-zinc-900 dark:text-white',
-    outline: 'text-zinc-900 dark:text-white',
+    primary: 'text-foreground',
+    secondary: 'text-foreground',
+    outline: 'text-foreground',
   };
 
   return (

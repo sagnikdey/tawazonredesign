@@ -2,11 +2,13 @@
   "name": "tawazonfinal",
   "version": "0.1.0",
   "private": true,
+  "description": "Do not run `npm create sanity` from this folder (iCloud path breaks the CLI). Use: npm run sanity:create-studio",
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sanity:create-studio": "bash scripts/create-sanity-studio.sh"
   },
   "dependencies": {
     "@iconify/react": "^6.0.2",

@@ -1,6 +1,6 @@
-import IndustryPage from '@/components/industry-page';
+import { IndustryPageWithHeader } from '@/components/industry-page-with-header';
 import { COATINGS_CONFIG } from '@/services/coatings';
 
-export default function CoatingsPage() {
-  return <IndustryPage config={COATINGS_CONFIG} />;
+export default async function CoatingsPage() {
+  return <IndustryPageWithHeader config={COATINGS_CONFIG} />;
 }

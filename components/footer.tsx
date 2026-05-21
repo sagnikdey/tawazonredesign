@@ -17,16 +17,16 @@ const footer = () => {
   };
 
   return (
-    <section className="border-t border-zinc-200 bg-zinc-50 pb-10 pt-16 dark:border-white/10 dark:bg-[#030303]">
+    <section className="border-footer-border bg-footer-bg border-t pb-10 pt-16">
       <div className="mx-auto max-w-[1400px] px-6">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
           {/* Logo + Newsletter */}
           <div className="col-span-2 lg:col-span-2">
             <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-5 w-5 items-center justify-center rounded bg-zinc-900 text-white dark:bg-zinc-800">
+              <div className="bg-logo-mark-bg text-logo-mark-fg flex h-5 w-5 items-center justify-center rounded">
                 <Icon icon="solar:scale-linear" width="14" strokeWidth="1.5" />
               </div>
-              <span className="text-sm font-semibold tracking-widest text-zinc-900 uppercase dark:text-white">
+              <span className="text-foreground text-sm font-semibold tracking-widest uppercase">
                 Tawazon
               </span>
             </Link>
@@ -46,7 +46,7 @@ const footer = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="h-9 rounded-md border border-zinc-200 bg-white px-3 text-xs placeholder:text-zinc-400 focus:border-zinc-400 focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:border-white/10 dark:bg-white/5 dark:placeholder:text-zinc-500 dark:focus:border-white/30 dark:focus:ring-white/30"
+                className="border-border bg-card placeholder:text-muted-foreground focus:border-ring focus:ring-ring/50 h-9 rounded-md border px-3 text-xs focus:outline-none focus:ring-1"
               />
               <Button type="submit" size="sm" variant="default" className="shrink-0">
                 Subscribe
@@ -57,14 +57,14 @@ const footer = () => {
 
           {/* Links */}
           <div>
-            <h4 className="text-xs font-semibold text-zinc-900 dark:text-white">
+            <h4 className="text-foreground text-xs font-semibold">
               Links
             </h4>
-            <ul className="mt-4 space-y-3 text-xs text-zinc-500">
+            <ul className="text-footer-muted mt-4 space-y-3 text-xs">
               <li>
                 <Link
                   href="/about-us"
-                  className="hover:text-black dark:hover:text-white"
+                  className="hover:text-foreground"
                 >
                   About Us
                 </Link>
@@ -72,7 +72,7 @@ const footer = () => {
               <li>
                 <Link
                   href="/about-us#team"
-                  className="hover:text-black dark:hover:text-white"
+                  className="hover:text-foreground"
                 >
                   Team
                 </Link>
@@ -80,7 +80,7 @@ const footer = () => {
               <li>
                 <Link
                   href="/industries"
-                  className="hover:text-black dark:hover:text-white"
+                  className="hover:text-foreground"
                 >
                   Industries
                 </Link>
@@ -88,7 +88,7 @@ const footer = () => {
               <li>
                 <Link
                   href="/locations"
-                  className="hover:text-black dark:hover:text-white"
+                  className="hover:text-foreground"
                 >
                   Locations
                 </Link>
@@ -98,15 +98,15 @@ const footer = () => {
 
           {/* Industries */}
           <div>
-            <h4 className="text-xs font-semibold text-zinc-900 dark:text-white">
+            <h4 className="text-foreground text-xs font-semibold">
               Industries
             </h4>
-            <ul className="mt-4 space-y-3 text-xs text-zinc-500">
+            <ul className="text-footer-muted mt-4 space-y-3 text-xs">
               {industries.map((industry) => (
                 <li key={industry.id}>
                   <Link
                     href={industry.link}
-                    className="hover:text-black dark:hover:text-white"
+                    className="hover:text-foreground"
                   >
                     {industry.name}
                   </Link>
@@ -117,14 +117,14 @@ const footer = () => {
 
           {/* Legal */}
           <div>
-            <h4 className="text-xs font-semibold text-zinc-900 dark:text-white">
+            <h4 className="text-foreground text-xs font-semibold">
               Legal
             </h4>
-            <ul className="mt-4 space-y-3 text-xs text-zinc-500">
+            <ul className="text-footer-muted mt-4 space-y-3 text-xs">
               <li>
                 <Link
                   href="#"
-                  className="hover:text-black dark:hover:text-white"
+                  className="hover:text-foreground"
                 >
                   Privacy
                 </Link>
@@ -132,7 +132,7 @@ const footer = () => {
               <li>
                 <Link
                   href="#"
-                  className="hover:text-black dark:hover:text-white"
+                  className="hover:text-foreground"
                 >
                   Terms
                 </Link>
@@ -141,20 +141,20 @@ const footer = () => {
           </div>
         </div>
 
-        <div className="mt-16 flex items-center justify-between border-t border-zinc-200 pt-8 dark:border-white/5">
-          <p className="text-xs text-zinc-500">
+        <div className="border-footer-divider mt-16 flex items-center justify-between border-t pt-8">
+          <p className="text-footer-muted text-xs">
             © 2026 Tawazon Inc. All rights reserved.
           </p>
           <div className="flex gap-4">
             <a
               href="#"
-              className="text-zinc-400 hover:text-black dark:hover:text-white"
+              className="text-footer-link hover:text-foreground"
             >
               <Icon icon="solar:brand-twitter-linear" />
             </a>
             <a
               href="#"
-              className="text-zinc-400 hover:text-black dark:hover:text-white"
+              className="text-footer-link hover:text-foreground"
             >
               <Icon icon="solar:brand-github-linear" />
             </a>

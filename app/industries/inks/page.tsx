@@ -1,6 +1,6 @@
-import IndustryPage from '@/components/industry-page';
+import { IndustryPageWithHeader } from '@/components/industry-page-with-header';
 import { INKS_CONFIG } from '@/services/inks';
 
-export default function InksPage() {
-  return <IndustryPage config={INKS_CONFIG} />;
+export default async function InksPage() {
+  return <IndustryPageWithHeader config={INKS_CONFIG} />;
 }

@@ -36,7 +36,7 @@ export default function ThemeToggle() {
       <button
         type="button"
         aria-label="Toggle theme"
-        className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 bg-white/50 text-zinc-600 transition-colors hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:text-zinc-400 dark:hover:bg-white/10"
+        className="border-border bg-card/50 text-muted-foreground hover:bg-muted flex h-9 w-9 items-center justify-center rounded-full border transition-colors"
       >
         <Icon icon="solar:sun-2-linear" width="18" strokeWidth="1.5" />
       </button>
@@ -48,7 +48,7 @@ export default function ThemeToggle() {
       type="button"
       onClick={toggleTheme}
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 bg-white/50 text-zinc-600 transition-colors hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:text-zinc-400 dark:hover:bg-white/10"
+      className="border-border bg-card/50 text-muted-foreground hover:bg-muted flex h-9 w-9 items-center justify-center rounded-full border transition-colors"
     >
       {theme === 'dark' ? (
         <Icon icon="solar:sun-2-linear" width="18" strokeWidth="1.5" />

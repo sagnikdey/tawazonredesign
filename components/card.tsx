@@ -145,7 +145,7 @@ const Card = () => {
           <button
             onClick={handlePrev}
             disabled={currentIndex === 0}
-            className="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white/90 dark:bg-white/10 backdrop-blur-sm border border-zinc-200 dark:border-white/10 shadow-lg hover:bg-white dark:hover:bg-white/20 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            className="border-carousel-fab-border bg-carousel-fab hover:bg-carousel-fab-hover absolute top-1/2 left-0 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border shadow-lg backdrop-blur-sm transition-all md:left-4 md:flex disabled:cursor-not-allowed disabled:opacity-30"
             aria-label="Previous card"
           >
             <Icon icon="solar:arrow-left-linear" width="20" strokeWidth="2" />
@@ -154,7 +154,7 @@ const Card = () => {
           <button
             onClick={handleNext}
             disabled={currentIndex === industries.length - 1}
-            className="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white/90 dark:bg-white/10 backdrop-blur-sm border border-zinc-200 dark:border-white/10 shadow-lg hover:bg-white dark:hover:bg-white/20 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            className="border-carousel-fab-border bg-carousel-fab hover:bg-carousel-fab-hover absolute top-1/2 right-0 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border shadow-lg backdrop-blur-sm transition-all md:right-4 md:flex disabled:cursor-not-allowed disabled:opacity-30"
             aria-label="Next card"
           >
             <Icon icon="solar:arrow-right-linear" width="20" strokeWidth="2" />
@@ -190,16 +190,16 @@ const Card = () => {
               >
                 <div className="glass-card-dark group relative overflow-hidden h-full p-6 md:p-8">
                   {/* Icon */}
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 bg-white text-zinc-900 shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-white">
+                  <div className="icon-box">
                     <Icon icon={industry.icon} width="20" strokeWidth="1.5" />
                   </div>
 
                   {/* Content */}
                   <div className="space-y-2">
-                    <h4 className="text-xl font-medium text-zinc-900 dark:text-white">
+                    <h4 className="text-foreground text-xl font-medium">
                       {industry.name}
                     </h4>
-                    <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 mb-6">
+                    <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
                       {industry.description}
                     </p>
 
@@ -222,14 +222,15 @@ const Card = () => {
 
           {/* Navigation Dots */}
           <div className="flex justify-center items-center gap-2 mt-8">
-            {industries.map((_, index) => (
+            {industries.map((industry, index) => (
               <button
-                key={index}
+                key={`dot-${industry.id}`}
+                type="button"
                 onClick={() => scrollToIndex(index)}
-                className={`transition-all duration-300 rounded-full ${
+                className={`rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? 'w-8 h-2 bg-zinc-900 dark:bg-white'
-                    : 'w-2 h-2 bg-zinc-300 dark:bg-white/30 hover:bg-zinc-400 dark:hover:bg-white/50'
+                    ? 'bg-foreground h-2 w-8'
+                    : 'bg-muted-foreground/30 hover:bg-muted-foreground/50 h-2 w-2'
                 }`}
                 aria-label={`Go to card ${index + 1}`}
               />

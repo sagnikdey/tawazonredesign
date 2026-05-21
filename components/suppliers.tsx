@@ -10,14 +10,15 @@ import {
   SUPPLIER_CATEGORIES,
   type Supplier,
 } from '@/services/suppliers';
+import { PageHeaderContent } from '@/components/page-header-content';
 
 function SupplierLogo({ supplier }: { supplier: Supplier }) {
   const [imgError, setImgError] = useState(false);
 
   const content = (
-    <div className="flex h-16 w-24 items-center justify-center rounded-lg border border-zinc-200 bg-white p-3 transition-all hover:border-emerald-500/50 hover:shadow-md dark:border-white/10 dark:bg-white/5 dark:hover:border-emerald-500/30">
+    <div className="border-border bg-card hover:border-brand-accent/50 flex h-16 w-24 items-center justify-center rounded-lg border p-3 transition-all hover:shadow-md">
       {imgError ? (
-        <span className="text-center text-xs font-medium text-zinc-500 dark:text-zinc-400">
+        <span className="text-muted-foreground text-center text-xs font-medium">
           {supplier.name}
         </span>
       ) : (
@@ -46,34 +47,32 @@ function SupplierLogo({ supplier }: { supplier: Supplier }) {
   );
 }
 
-export default function Suppliers() {
+export default function Suppliers({
+  header,
+}: {
+  header: { badgeLabel: string; heading: string };
+}) {
   return (
-    <section className="sm:py-32 dark:bg-[#030303] bg-white pt-24 pb-24">
+    <section className="bg-section-alt sm:py-32 pt-24 pb-24">
         <div className="sm:px-12 xl:px-24 max-w-[1400px] mr-auto ml-auto pr-6 pl-6">
           {/* Hero / Intro */}
           <div className="mb-12 md:flex md:items-end md:justify-between">
             <div className="max-w-2xl">
-              <div className="mb-8 flex w-fit items-center gap-2 rounded-full border border-zinc-200 bg-white/50 px-3 py-1 text-xs text-zinc-600 backdrop-blur-sm dark:border-white/10 dark:bg-white/5 dark:text-zinc-300">
-                <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                <span>{SUPPLIERS_INTRO.badge}</span>
-              </div>
-              <h1 className="dark:text-white md:text-5xl text-3xl font-semibold text-zinc-900 tracking-tight">
-                {SUPPLIERS_INTRO.heading}
-              </h1>
-              <h2 className="mt-2 text-xl font-medium text-zinc-800 dark:text-white md:text-3xl">
+              <PageHeaderContent badgeLabel={header.badgeLabel} heading={header.heading} />
+              <h2 className="text-foreground mt-2 text-xl font-medium md:text-3xl">
                 {SUPPLIERS_INTRO.title}
               </h2>
-              <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
+              <p className="text-muted-foreground mt-4 text-base">
                 {SUPPLIERS_INTRO.description}
               </p>
-              <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
+              <p className="text-muted-foreground mt-4 text-base">
                 {SUPPLIERS_INTRO.subDescription}
               </p>
             </div>
             <div className="mt-6 md:mt-0">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-zinc-700 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 group inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all"
               >
                 Contact us
                 <Icon
@@ -87,11 +86,11 @@ export default function Suppliers() {
           </div>
 
           {/* Building connections */}
-          <div className="glass-card mb-16 border border-zinc-200 bg-zinc-50 p-8 dark:border-white/10 dark:bg-white/5 md:p-12">
-            <h3 className="text-xl font-semibold text-zinc-900 dark:text-white md:text-2xl">
+          <div className="glass-card mb-16 md:p-12">
+            <h3 className="text-foreground text-xl font-semibold md:text-2xl">
               {SUPPLIERS_BUILDING_CONNECTIONS.title}
             </h3>
-            <p className="mt-4 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
+            <p className="text-muted-foreground mt-4 text-base leading-relaxed">
               {SUPPLIERS_BUILDING_CONNECTIONS.description}
             </p>
           </div>
@@ -99,7 +98,7 @@ export default function Suppliers() {
           {/* Supplier categories with logos */}
           {SUPPLIER_CATEGORIES.map((category) => (
             <div key={category.id} className="mb-16">
-              <h3 className="mb-6 text-lg font-semibold text-zinc-900 dark:text-white md:text-xl">
+              <h3 className="text-foreground mb-6 text-lg font-semibold md:text-xl">
                 {category.title}
               </h3>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">

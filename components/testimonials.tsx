@@ -15,7 +15,7 @@ const Testimonials = () => {
         <div className="mb-8 md:flex md:items-end md:justify-between">
           <div className="max-w-xl mt-6 md:mt-0">
             <Badge variant="outline">
-              <CircleDot data-icon="CircleDot" className="text-green-500" />
+              <CircleDot data-icon="CircleDot" className="text-brand-accent" />
               What Our Partners Say
             </Badge>
             <h2 className="pt-8">Trusted by industry leaders worldwide.</h2>

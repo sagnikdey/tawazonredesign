@@ -58,8 +58,8 @@ const TeamMember = ({ name, title, imageSrc, bio, details, variant = 'grid' }: T
   }
 
   return (
-    <article className="group overflow-hidden backdrop-blur-2xl bg-white/10 dark:bg-zinc-900/10 border dark:border-zinc-800/50 rounded-sm p-2">
-      <div className="relative aspect-4/3 w-full overflow-hidden bg-black/20">
+    <article className="border-border bg-card/10 group overflow-hidden rounded-sm border p-2 backdrop-blur-2xl">
+      <div className="bg-scrim/20 relative aspect-4/3 w-full overflow-hidden">
         <Image
           src={imageSrc}
           alt={name}

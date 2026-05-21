@@ -1,6 +1,6 @@
-import IndustryPage from '@/components/industry-page';
+import { IndustryPageWithHeader } from '@/components/industry-page-with-header';
 import { FOOD_ADDITIVES_CONFIG } from '@/services/food-additives';
 
-export default function FoodAdditivesPage() {
-  return <IndustryPage config={FOOD_ADDITIVES_CONFIG} />;
+export default async function FoodAdditivesPage() {
+  return <IndustryPageWithHeader config={FOOD_ADDITIVES_CONFIG} />;
 }

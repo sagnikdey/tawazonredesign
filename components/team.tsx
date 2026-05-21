@@ -2,6 +2,7 @@ import React from 'react';
 import TeamMember, { type TeamMemberProps } from './teammember';
 import { Badge } from './ui/badge';
 import { CircleDot } from 'lucide-react';
+import { stableContentKey } from '@/lib/utils';
 
 const team = () => {
   // Replace these with real team data + local images when available.
@@ -63,7 +64,7 @@ const team = () => {
       <div className="mx-auto max-w-[1400px] px-6 sm:px-12 xl:px-24">
         <div className="max-w-3xl">
             <Badge variant="outline" className='mb-8'>
-                        <CircleDot data-icon="CircleDot" className='text-green-500'/>
+                        <CircleDot data-icon="CircleDot" className="text-brand-accent"/>
                         Team Tawazon
                     </Badge>
           <h2>
@@ -80,9 +81,15 @@ const team = () => {
          
         </div>
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {members.map((m, idx) => (
-            <TeamMember key={`${m.name}-${idx}`} {...m} />
-          ))}
+          {members.map((m, idx) => {
+            const fingerprint = `${m.name}|${m.title}|${m.imageSrc}`
+            const priorDupes = members
+              .slice(0, idx)
+              .filter((x) => `${x.name}|${x.title}|${x.imageSrc}` === fingerprint).length
+            return (
+              <TeamMember key={stableContentKey(fingerprint, priorDupes)} {...m} />
+            )
+          })}
         </div>
       </div>
    

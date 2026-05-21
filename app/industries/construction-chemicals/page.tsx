@@ -1,6 +1,6 @@
-import IndustryPage from '@/components/industry-page';
+import { IndustryPageWithHeader } from '@/components/industry-page-with-header';
 import { CONSTRUCTION_CHEMICALS_CONFIG } from '@/services/construction-chemicals';
 
-export default function ConstructionChemicalsPage() {
-  return <IndustryPage config={CONSTRUCTION_CHEMICALS_CONFIG} />;
+export default async function ConstructionChemicalsPage() {
+  return <IndustryPageWithHeader config={CONSTRUCTION_CHEMICALS_CONFIG} />;
 }

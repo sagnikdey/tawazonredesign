@@ -1,6 +1,6 @@
-import IndustryPage from '@/components/industry-page';
+import { IndustryPageWithHeader } from '@/components/industry-page-with-header';
 import { RUBBER_CONFIG } from '@/services/rubber';
 
-export default function RubberPage() {
-  return <IndustryPage config={RUBBER_CONFIG} />;
+export default async function RubberPage() {
+  return <IndustryPageWithHeader config={RUBBER_CONFIG} />;
 }

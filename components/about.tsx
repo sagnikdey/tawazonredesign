@@ -16,7 +16,7 @@ const about = () => {
                 
                 <div className="max-w-xl">
                     <Badge variant="outline">
-                        <CircleDot data-icon="CircleDot" className='text-green-500'/>
+                        <CircleDot data-icon="CircleDot" className="text-brand-accent"/>
                         Who we are
                     </Badge>
                     <h2 className="pt-8">Empowering industries with quality &amp; innovation</h2>
@@ -41,7 +41,7 @@ const about = () => {
                     
                     <div className="relative z-10 flex h-full flex-col justify-between">
                         <div className="">
-                            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 bg-white text-zinc-900 shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-white">
+                            <div className="icon-box">
                                 <Icon icon="solar:atom-linear" width="20" strokeWidth="1.5" className=""></Icon>
                             </div>
                             <h3 className="pb-4">Global Reach, Local Expertise</h3>
@@ -77,7 +77,7 @@ const about = () => {
                 <div className="glass-card group relative overflow-hidden  md:row-span-2">
                     <div className="relative z-10 flex h-full flex-col justify-between">
                         <div>
-                            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 bg-white text-zinc-900 shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-white">
+                            <div className="icon-box">
                                 <Icon icon="solar:soundwave-circle-linear" width="20" strokeWidth="1.5"></Icon>
                             </div>
                             <h3>Responsible Business Partner</h3>
@@ -88,8 +88,8 @@ const about = () => {
                         </div>
                         <div className="space-y-4">
                         <div className="flex items-start gap-3">
-                            <div className="shrink-0 w-8 h-8 rounded-full border flex items-center justify-center mt-0.5">
-                                <ListCheckIcon className="text-green-600" width="16" height="16" />
+                            <div className="border-border flex h-8 w-8 shrink-0 items-center justify-center rounded-full border mt-0.5">
+                                <ListCheckIcon className="text-brand-strong" width="16" height="16" />
                             </div>
                             <div>
                                 <h5 className="font-semibold">ISO 9001:2015</h5>
@@ -97,8 +97,8 @@ const about = () => {
                             </div>
                         </div>
                         <div className="flex items-start gap-3">
-                        <div className="shrink-0 w-8 h-8 rounded-full border flex items-center justify-center mt-0.5">
-                                <ListCheckIcon className="text-green-600" width="16" height="16" />
+                        <div className="border-border flex h-8 w-8 shrink-0 items-center justify-center rounded-full border mt-0.5">
+                                <ListCheckIcon className="text-brand-strong" width="16" height="16" />
                             </div>
                             <div>
                                 <h5 className="font-semibold">ISO 14001:2015</h5>
@@ -106,8 +106,8 @@ const about = () => {
                             </div>
                         </div>
                         <div className="flex items-start gap-3">
-                        <div className="shrink-0 w-8 h-8 rounded-full border flex items-center justify-center mt-0.5">
-                                <ListCheckIcon className="text-green-600" width="16" height="16" />
+                        <div className="border-border flex h-8 w-8 shrink-0 items-center justify-center rounded-full border mt-0.5">
+                                <ListCheckIcon className="text-brand-strong" width="16" height="16" />
                             </div>
                             <div>
                                 <h5 className="font-semibold">ISO 45001:2018</h5>
