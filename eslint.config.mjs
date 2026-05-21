@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Separate Sanity Studio app (sanity deps live only under studio-tawazon/).
+    "studio-tawazon/**",
   ]),
 ]);
 
